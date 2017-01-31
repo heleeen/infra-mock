@@ -1,0 +1,3 @@
+---
+
+php: { pkgs: [ php-cli, php-common, php-gd, php-ldap, php-mbstring, php-mcrypt, php-mysqlnd, php-pdo, php-pear, php-xml ] }

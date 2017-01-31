@@ -1,0 +1,9 @@
+---
+
+- hosts: infra-mock
+  become: yes
+  user: vagrant
+  gather_facts: no
+  roles:
+     - {role: java,  tags: [java]}
+     - {role: cassandra,  tags: [cassandra]}

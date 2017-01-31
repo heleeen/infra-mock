@@ -1,0 +1,4 @@
+---
+
+- name: copy files to /etc/yum.repos.d/.
+  copy: src=datastax.repo dest=/etc/yum.repos.d/

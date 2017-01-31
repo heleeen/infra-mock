@@ -1,0 +1,12 @@
+---
+
+- hosts: infra-mock
+  become: yes
+  user: vagrant
+  gather_facts: no
+  roles:
+     - {role: common,  tags: [always]}
+    #  - {role: php,     tags: [php]}
+    #  - {role: composer,     tags: [composer]}
+     - {role: git,     tags: [always]}
+     - {role: vim,     tags: [vim]}

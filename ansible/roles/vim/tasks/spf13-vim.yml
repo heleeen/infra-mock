@@ -1,0 +1,12 @@
+---
+
+- name: downloads spf-13vim.
+  get_url: url=https://j.mp/spf13-vim3 dest="/home/{{ansible_ssh_user}}/.spf13-vim.sh" mode=0755
+  sudo: no
+  register: downloaded
+
+- name: set up spf-13vim.
+  shell: sh /home/{{ansible_ssh_user}}/.spf13-vim.sh
+  sudo: no
+  when: downloaded|changed
+

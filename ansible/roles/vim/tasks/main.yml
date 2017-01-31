@@ -1,0 +1,6 @@
+---
+
+- include: vim.yml
+- include: spf13-vim.yml
+- include: jshint.yml
+

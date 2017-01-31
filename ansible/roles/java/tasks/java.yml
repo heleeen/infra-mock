@@ -1,0 +1,4 @@
+---
+
+- name: installs java.
+  yum: name=java

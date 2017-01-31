@@ -1,0 +1,4 @@
+---
+
+- name: installs cassandra.
+  yum: name=cassandra20

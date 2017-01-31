@@ -1,0 +1,32 @@
+---
+- include_vars: ../vars/php.yml
+
+- name: installs epel repository.
+  yum: name=http://ftp.iij.ad.jp/pub/linux/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+
+- name: installs remi repository.
+  yum: name=http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+
+- name: copy epel.repo.
+  copy: src=epel.repo dest=/etc/yum.repos.d/
+
+- name: installs libmcrypt.
+  yum: name=libmcrypt enablerepo=epel
+
+- name: installs php.
+  yum: name=php enablerepo=remi-php56
+
+- name: copy php.ini
+  copy: src=php.ini dest=/etc/
+  register: copy_result1
+
+- name: reloads httpdservice.
+  service: name=httpd state=reloaded
+  when: copy_result1|changed
+
+- name: installs libwebp.
+  yum: name=libwebp enablerepo=epel
+
+- name: installs php packages.
+  yum: name={{ item }} enablerepo=remi-php56 state=present
+  with_items: "{{ php.pkgs }}"

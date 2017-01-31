@@ -1,0 +1,4 @@
+---
+
+- name: installs git.
+  yum: name=git

@@ -1,0 +1,6 @@
+---
+
+- name: copies "jshintrc".
+  copy: src=jshintrc dest="/home/{{ansible_ssh_user}}/.jshintrc" mode=0644
+  sudo: no
+
