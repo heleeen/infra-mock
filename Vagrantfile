@@ -13,6 +13,7 @@ Vagrant.configure(2) do |config|
   config.vm.box_check_update = false
   config.vbguest.auto_update = false
   config.ssh.forward_agent = true
+  config.ssh.insert_key = false
 
   config.vm.define $name do |conf|
     conf.vm.hostname = $name
